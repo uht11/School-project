@@ -1,0 +1,8 @@
+Implement Huffman coding to compress and decompress arbitrary files (text-based or binary files such as
+a .pdf or .jpg or .mp4.) as explained in the Subject notes. For small file sizes or a file that is already
+’compressed’ (eg .jpg) do not expect much in terms of compression. In general for files of size about 10MiB,
+an implementation should take no more than a few seconds, may be 15 seconds forgivingly. Moreover, you
+will be writing bit aligned codes into files: practice with bit operations and packing or unpacking bits
+into/from bytes. If instead of writing bit 1 you write character 1 (in ASCII or UNICODE) this defeats the
+compression objective. You also need to provide your own BinaryHeap (aka array with the required Heap
+property) with operations as described in class
