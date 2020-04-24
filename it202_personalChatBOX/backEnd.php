@@ -35,7 +35,7 @@ function sendData($userName, $password, $text){
     date_default_timezone_set('US/Eastern');                                                      //setting time zone to eastern for messages time stamp
     
     
-    $conn = mysqli_connect( 'sql.njit.edu' , 'uh6', 'GameMaster1!', 'uh6');                       //create server connection
+    $conn = mysqli_connect( 'sql.njit.edu' , 'uh6', 'MYPASSWORD', 'uh6');                       //create server connection
     if ($conn->connect_error){echo '0'; die("Connection failed: " . $conn->connect_error);}       // Check connection
 
     $sql = "SELECT * FROM Chat WHERE name = '$userName' && password = '$password'";               // query for SQL server
@@ -62,7 +62,7 @@ function sendData($userName, $password, $text){
 */
 function getData($userName){  
     $dataArr = [];                                                                              //array will be used to send later , null atm
-    $conn = mysqli_connect( 'sql.njit.edu' , 'uh6', 'GameMaster1!', 'uh6');                     //create server connection
+    $conn = mysqli_connect( 'sql.njit.edu' , 'uh6', 'MYPASSWORD', 'uh6');                     //create server connection
     if ($conn->connect_error){echo '0'; die("Connection failed: " . $conn->connect_error);}     // Check connection
 
     $sql = "SELECT `chat` FROM Chat WHERE name = '$userName'";                                  // query for SQL server
