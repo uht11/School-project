@@ -1,0 +1,74 @@
+
+	//Uzzul Hussain
+	//CS 114 - 002
+
+
+	import java.util.*;
+
+import javax.lang.model.element.Element;
+
+import java.io.*;
+	public class Part1Driver {
+
+	public static void main(String[] args) throws ClassNotFoundException, IOException 
+	   {
+		
+		File file = new File ("inventory.txt");
+		Scanner scan = new Scanner(file);
+		Scanner userIN = new Scanner(System.in);
+		String tempKey = ""; int x = 0;
+		
+		InsertionSort IS = new InsertionSort();
+		MergeSort MS = new MergeSort();
+		QuickSort QS = new QuickSort();
+		
+		String [] inputI = new String[200];
+		String [] inputM = new String[200];
+		String [] inputQ = new String[200];
+		
+		while(x<200)
+		{
+            tempKey = scan.nextLine();  
+			
+			inputI[x] = tempKey;
+			inputM[x] = tempKey;
+			inputQ[x++] = tempKey;
+		}
+		//calculates time taken by Insertion Sort
+		print("---Insertion Sort: 200 elements sorted---");
+				x  =(int) System.nanoTime();
+				IS.Sort(inputI,200 );
+				x -= (int) System.nanoTime();
+				print("Time: "+(-1*x));
+		
+		//calculates time taken by Merge Sort
+		print("---Merge Sort: 200 elements sorted---");
+				x  =(int) System.nanoTime();
+				MS.Sort(inputM);
+				x -= (int) System.nanoTime();
+				print("Time: "+(-1*x));
+				
+
+		//calculates time taken by Quick Sort
+		print("---Quick Sort: 200 elements sorted---");
+				x  =(int) System.nanoTime();
+				QS.Sort(inputQ);
+				x -= (int) System.nanoTime();
+				print("Time: "+(-1*x));
+		
+		
+		
+		
+	   }
+	
+	
+	
+	
+	
+	public static void print(String s){
+		System.out.println(s);
+	}
+	public static void print(int s){
+		System.out.println(s);
+	}
+	}
