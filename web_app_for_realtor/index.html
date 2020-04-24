@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>HHR SignIn</title>
+<link rel="stylesheet" type="text/css" href="styles.css">
+<script type="text/javascript" src="backEnd.js"></script>
+
+
+</head>
+
+<body>
+<div class="signInBox">
+  <h1 align="center"> House Hunter's Realtors System <br /></h1>
+  <form onsubmit="userSubmit(); return false;">
+    <table class="signInTable" width="350" border="0">
+      <tbody>
+        <tr>
+          <td>Realtor’s name:*</td>
+          <td><input type="text" name="name" required></td>
+        </tr>
+        <tr>
+          <td>Password:*</td>
+          <td><input type="password" name="password" alt="Password" required></td>
+        </tr>
+        <tr>
+          <td>Realtor’s ID:*</td>
+          <td><input type="number" name="id" required></td>
+        </tr>
+        <tr>
+          <td>Realtor’s email:</td>
+          <td><input type="text" name="email"></td>
+        </tr>
+        <tr>
+          <td align="center" colspan="2"><input type="checkbox" name="emailCon" >
+            <b>Email me a transaction confirmation </b></td>
+        </tr>
+        <tr>
+          <td align="center" colspan="2"><b>Select a transaction:</b>
+            <select id="dropdown" name="dropdown">
+              <option value="scheduling a Showing">Schedule a Showing</option>
+              <option value="removing a Showing">Remove a Showing</option>
+              <option value="searching realtor's Schedule">Search Realtor's Schedule</option>
+              <option value="creating a new account">Register/Create a New Account</option>
+            </select></td>
+        </tr>
+		<tr>
+			<td align="center" colspan="2"><br /><input type="submit" value="Continue"></td>
+        </tr>
+      </tbody>
+    </table>
+  </form>
+</div>
+</body>
+</html>
