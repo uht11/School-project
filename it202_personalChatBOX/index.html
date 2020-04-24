@@ -1,0 +1,59 @@
+<html>
+    <head>
+        <title>
+            Private Chatroom
+        </title>
+
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <script src="back.js"></script>
+        <script>
+            function countChar(val) {
+              var len = val.value.length;
+              document.getElementById("charNum").innerHTML = len+' characters (max 350)'
+            };
+          </script>
+    </head>
+    <body>
+        <img src="logo.png"></img>
+        <div class="base-container">
+            <div class="formwrapper">
+        <div class="chat-popup" id="myForm">
+            <table width="100%">
+                <tr>
+                    <td>
+                      <form action="#" class="form-container">
+                        <h1>Chat</h1>
+                        <label for="msg"><b>Send new message</b></label>
+                        <i id="charNum">0 characters (max 350)</i>
+                        <textarea id="msg" onkeyup="countChar(this)" maxlength ="350" placeholder="Type message.." name="msg" required></textarea>
+                        <label for="name"><b>Name:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label> <input type="text" class="name" name="name" id="name" required>
+                        <br/><br/>
+                        <label for="password"><b>Password:</b></label> <input type="text" class="password" password="password" id="password" required>
+                        <br/><br/>
+                        <button type="button" onclick="sendMsg();" class="btn">Send</button>
+                        <label id="sendErr"  class="error"><br/>&nbsp;</label>
+                      </form>
+                    </td>
+                    <td align="right">
+                        <form action="#" class="form-container">
+                          <h1>Listen</h1>
+                          <label for="msg"><b>Receive messages</b></label>
+                          <textarea id="textReciver" class="textReciver" readonly></textarea>
+                          <label for="name2"><b>Name:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label> <input type="text" class="name2" name="name2" id="name2" required>
+                          <br/><br/>
+                          <button type="button" class="btn cancel" onclick="getMsg()">Listen</button>
+                        </form>
+                        <label id="listenErr" name="listenErr" class="error"><br/>&nbsp;</label>
+                    </td>
+                </tr><tr>
+                    <td>
+                    </td>
+                    <td></td>
+                </tr>
+            </table>
+            
+          </div>
+        </div>
+    </div>
+    </body>
+</html>
