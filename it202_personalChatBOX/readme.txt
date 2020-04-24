@@ -1,5 +1,8 @@
 Personal chat box using AJAX, Javascript, php and SQL for IT202 class
 
+link to the actual site:
+https://web.njit.edu/~uh6/it202project5/
+
 Current valid users are :
 john      777
 moe       moe454
