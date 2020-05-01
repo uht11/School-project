@@ -7,6 +7,7 @@
         <link rel="stylesheet" type="text/css" href="style.css">
         <script src="back.js"></script>
         <script>
+            userList();
             function countChar(val) {
               var len = val.value.length;
               document.getElementById("charNum").innerHTML = len+' characters (max 350)'
@@ -15,43 +16,77 @@
     </head>
     <body>
         <img src="logo.png"></img>
+        <div class="head-container">
+          <div class="formwrapper">
+            <table width="100%">
+              <tr>
+                <td align="center" colspan="2" id="addErr" class="error">
+                  Current List of Users
+                </td> 
+              </tr>
+              <tr>
+                <td align="center" width="300px">
+                  <form action="#" class="form-container">
+                    <label for="nameAdd"><b>Name:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label> <input type="text" class="nameAdd" name="nameAdd" placeholder="min 3 letters" id="nameAdd" required>
+                    <br/><br/>
+                    <label for="passwordAdd"><b>Password:</b></label> <input type="text" class="passwordAdd" password="passwordAdd" id="passwordAdd" placeholder="min 3 char" required>
+                    <br/><br/>
+                    <button type="button" onclick="addUser();" class="btn">Add User</button>
+                  </form>
+                </td>
+                <td width="340px">
+                  <textarea id="userlist" class="userlist" readonly></textarea>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
         <div class="base-container">
             <div class="formwrapper">
         <div class="chat-popup" id="myForm">
             <table width="100%">
                 <tr>
-                    <td>
+                    <td  class="maintd">
                       <form action="#" class="form-container">
                         <h1>Chat</h1>
                         <label for="msg"><b>Send new message</b></label>
                         <i id="charNum">0 characters (max 350)</i>
-                        <textarea id="msg" onkeyup="countChar(this)" maxlength ="350" placeholder="Type message.." name="msg" required></textarea>
+                        <p>
+                          <textarea id="msg" class="textReciver" onkeyup="countChar(this)" maxlength ="350" placeholder="Type message.." name="msg" required></textarea>
+                        </p>
+                        </form>
+                    </td>
+                    <td align="right" class="maintd">
+                      <form action="#" class="form-container">
+                          <h1>Listen</h1>
+                          <label for="msg"><b>Receive messages</b></label> 
+                          <p>
+                            <textarea id="textReciver" class="textReciver" readonly></textarea>
+                          </p>
+                      </form>
+                    </td>
+                </tr><tr>
+                  <td id="sendErr"  class="error">Please type your Name and Password</td>
+                  <td align="right" id="listenErr" name="listenErr" class="error">Enter the name of texter</td>
+                </tr><tr>
+                    <td class="bottomtd">
+                      <form action="#" class="form-container">
                         <label for="name"><b>Name:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label> <input type="text" class="name" name="name" id="name" required>
                         <br/><br/>
                         <label for="password"><b>Password:</b></label> <input type="text" class="password" password="password" id="password" required>
                         <br/><br/>
                         <button type="button" onclick="sendMsg();" class="btn">Send</button>
-                        <label id="sendErr"  class="error"><br/>&nbsp;</label>
                       </form>
                     </td>
-                    <td align="right">
-                        <form action="#" class="form-container">
-                          <h1>Listen</h1>
-                          <label for="msg"><b>Receive messages</b></label>
-                          <textarea id="textReciver" class="textReciver" readonly></textarea>
-                          <label for="name2"><b>Name:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label> <input type="text" class="name2" name="name2" id="name2" required>
-                          <br/><br/>
-                          <button type="button" class="btn cancel" onclick="getMsg()">Listen</button>
-                        </form>
-                        <label id="listenErr" name="listenErr" class="error"><br/>&nbsp;</label>
+                    <td class="bottomtd" align="right">
+                      <form action="#" class="form-container">
+                        <label for="name2"><b>Name:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label> <input type="text" class="name2" name="name2" id="name2" required>
+                        <br/><br/>
+                        <button type="button" class="btn cancel" onclick="getMsg()">Listen</button>
+                      </form>
                     </td>
-                </tr><tr>
-                    <td>
-                    </td>
-                    <td></td>
                 </tr>
             </table>
-            
           </div>
         </div>
     </div>
