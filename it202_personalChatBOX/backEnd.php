@@ -1,6 +1,6 @@
 <?php
 /*  
-    Last updated: April 2020
+    Last updated: May 2020
     Author name:  Uzzul Hussain 
     Email:        uzzulht@gmail.com
 */
@@ -22,6 +22,12 @@ if($type == 'send'){
 }
 elseif($type == 'listen' ){
   getData($userName);
+}
+elseif($type == 'add' ){
+  addUser($userName,$password);
+}
+elseif($type == 'list' ){
+  getList();
 }
 else{
   echo '0';
@@ -82,5 +88,45 @@ function getData($userName){
       $conn->close();                                                                           // close server connection
         
 }//end of getData()
+
+
+
+function addUser($userName, $password){  
+
+  $conn = mysqli_connect( 'sql.njit.edu' , 'uh6', 'MYPASSWORD', 'uh6');                       //create server connection
+  if ($conn->connect_error){echo '0'; die("Connection failed: " . $conn->connect_error);}       // Check connection
+
+  $sql = "INSERT INTO `uh6`.`Chat` (`index`, `name`, `password`, `chat`) VALUES (NULL, '$userName', '$password', '');";               // query for SQL server
+  $result = $conn->query($sql);                                                                 //assign return data to result variable
+    
+    echo $result;                                                                              // if returned result is error echo 0
+
+    $conn->close();                                                                            // close server connection
+    
+}//end of sendData()
+
+function getList(){  
+
+    $dataArr = [];                                                                              //array will be used to send later , null atm
+    $conn = mysqli_connect( 'sql.njit.edu' , 'uh6', 'MYPASSWORD', 'uh6');                     //create server connection
+    if ($conn->connect_error){echo '0'; die("Connection failed: " . $conn->connect_error);}     // Check connection
+
+    $sql = "SELECT `name` FROM Chat ORDER BY `Chat`.`name` ASC";                                // query for SQL server
+    $result = $conn->query($sql);                                                               //assign return data to result variable
+
+      if ($result->num_rows > 0) {                                                              //If there is a user with the given name then add it to dataArr[]
+          
+        while($row = $result->fetch_assoc()) {                                                  //while loop using default methods to loop through all the values of the result array
+          $dataArr[] = $row["name"];                                                            // adding the chat row data into our dataArr[]
+        }
+        
+        echo (json_encode($dataArr));                                                            //end of the while loop, ie. all the data is added to our array now return it using json_encode()
+
+      }
+      else{echo json_encode('0'); }
+  
+      $conn->close();                                                                           // close server connection
+}//end of sendData()
+
 
 ?>
