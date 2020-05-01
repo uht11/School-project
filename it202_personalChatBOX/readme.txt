@@ -4,9 +4,8 @@ link to the actual site:
 https://web.njit.edu/~uh6/it202project5/
 
 Current valid users are :
-john      777
-moe       moe454
-hussain   111
+uzzul 123 
+hussain  123
 
 To send msg: 
 user have to give name and password .i.e given up ^
